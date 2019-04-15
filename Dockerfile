@@ -8,7 +8,7 @@ LABEL org.label-schema.schema-version="1.0" \
 
 MAINTAINER AlleoTech <admin@alleo.tech>
 
-ARG PHP_VERSION=71
+ARG PHP_VERSION=72
 
 # Enable Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
