@@ -40,6 +40,7 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
     php-xmlrpc \
     php-fpm \
 	nginx \
+    cronie \
     && yum clean all \
     && rm -rf /var/cache/yum
 
