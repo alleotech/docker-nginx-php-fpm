@@ -22,6 +22,8 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 
 # Install PHP and Tools 
 RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
+    mysql \
+    composer \
     php-cli \
     php-common \
     php-gd \
@@ -39,6 +41,7 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
     php-xml \
     php-xmlrpc \
     php-fpm \
+    php-pecl-gearman \
 	nginx \
     cronie \
     rsync \
