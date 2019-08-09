@@ -1,6 +1,16 @@
-# Docker image for nginx and php-fpm in single container
+# nginx-php-fpm
 
-```docker exec -p 80:80 alleotech/nginx-php```
+## About
+
+![](https://img.shields.io/github/license/alleotech/docker-nginx-php-fpm)
+
+Nginx + PHP-FPM Docker image by [AlleoTech Ltd](https://alleo.tech).
+
+## Usage
+
+```
+docker exec -p 80:80 alleotech/nginx-php
+```
 
 ## Handy Paths
 
