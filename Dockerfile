@@ -2,7 +2,7 @@ FROM centos:centos7
 
 LABEL org.label-schema.schema-version="1.0" \
     org.label-schema.name="Nginx with PHP-FPM Docker Image" \
-    org.label-schema.vendor="AlleoTech" \
+    org.label-schema.vendor="AlleoTech Ltd" \
     org.label-schema.livence="MIT" \
     org.label-schema.build-data="2019040601"
 
@@ -20,7 +20,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     && yum-config-manager --enable remi-php${PHP_VERSION}
 
 
-# Install PHP and Tools 
+# Install PHP and Tools
 RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
     mysql \
     composer \
@@ -42,7 +42,7 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
     php-xmlrpc \
     php-fpm \
     php-pecl-gearman \
-	nginx \
+    nginx \
     cronie \
     rsync \
     git \
@@ -56,15 +56,15 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
 
 # Configure things
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini \
-	&& mkdir -p /etc/nginx/conf.d/000-default \
-	&& mkdir -p /var/www/html/000-defualt/webroot \
-	&& mkdir -p /var/www/html/000-default/webroot/.well-known \
-	&& mkdir -p /run/php-fpm \
-	&& mkdir -p /var/cache/nginx/fastcgi \
-	&& chown nobody:nobody /var/lib/php -R \
-	&& chown nobody:nobody /var/cache/nginx -R \
-	&& chown nobody:nobody /var/lib/nginx -R \
-	&& echo '<?php phpinfo(); ?>' > /var/www/html/000-default/webroot/index.php
+    && mkdir -p /etc/nginx/conf.d/000-default \
+    && mkdir -p /var/www/html/000-defualt/webroot \
+    && mkdir -p /var/www/html/000-default/webroot/.well-known \
+    && mkdir -p /run/php-fpm \
+    && mkdir -p /var/cache/nginx/fastcgi \
+    && chown nobody:nobody /var/lib/php -R \
+    && chown nobody:nobody /var/cache/nginx -R \
+    && chown nobody:nobody /var/lib/nginx -R \
+    && echo '<?php phpinfo(); ?>' > /var/www/html/000-default/webroot/index.php
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY vhost.conf /etc/nginx/conf.d/000-default/vhost.conf
