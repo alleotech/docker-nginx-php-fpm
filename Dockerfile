@@ -57,7 +57,7 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
 # Configure things
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini \
     && mkdir -p /etc/nginx/conf.d/000-default \
-    && mkdir -p /var/www/html/000-defualt/webroot \
+    && mkdir -p /var/www/html/000-default/webroot \
     && mkdir -p /var/www/html/000-default/webroot/.well-known \
     && mkdir -p /run/php-fpm \
     && mkdir -p /var/cache/nginx/fastcgi \
