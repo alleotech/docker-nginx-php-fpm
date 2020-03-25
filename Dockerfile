@@ -51,6 +51,7 @@ RUN yum -y install --setopt=tsflags=nodocs openssh-clients \
     mtr \
     telnet \
     links \
+	gettext \
     && yum clean all \
     && rm -rf /var/cache/yum
 
