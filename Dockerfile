@@ -8,15 +8,13 @@ LABEL org.label-schema.schema-version="1.0" \
 
 MAINTAINER AlleoTech <admin@alleo.tech>
 
-ARG PHP_VERSION=72
+ARG PHP_VERSION=81
 
 # Enable Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
 # Install EPEL & REMI
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
-    && rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
-    && yum-config-manager --enable epel \
+RUN yum-config-manager --enable epel \
     && yum-config-manager --enable remi-php${PHP_VERSION}
 
 
