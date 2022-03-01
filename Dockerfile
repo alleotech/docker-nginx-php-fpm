@@ -14,7 +14,9 @@ ARG PHP_VERSION=81
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 
 # Install EPEL & REMI
-RUN yum-config-manager --enable epel \
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
+    && rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
+    && yum-config-manager --enable epel \
     && yum-config-manager --enable remi-php${PHP_VERSION}
 
 
